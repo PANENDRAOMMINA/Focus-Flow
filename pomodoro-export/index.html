@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#0f0e17" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>Pomodoro Timer – Focus Flow</title>
+    <meta name="description" content="A beautiful Pomodoro timer app with custom routine builder." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google AdSense — replace YOUR_ADSENSE_CLIENT_ID after approval -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_CLIENT_ID"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- 3-column ad layout: Left Ad | App | Right Ad -->
+    <div class="ad-layout-wrapper">
+
+        <!-- LEFT AD BANNER -->
+        <aside class="ad-sidebar ad-sidebar--left" id="adSidebarLeft">
+            <div class="ad-slot" id="adSlotLeft">
+                <div class="ad-placeholder">
+                    <div class="ad-placeholder-icon">📢</div>
+                    <div class="ad-placeholder-label">Ad Space</div>
+                    <div class="ad-placeholder-size">160×600</div>
+                </div>
+                <!-- Real AdSense code (uncomment after approval):
+                <ins class="adsbygoogle"
+                    style="display:inline-block;width:160px;height:600px"
+                    data-ad-client="ca-pub-YOUR_ADSENSE_CLIENT_ID"
+                    data-ad-slot="YOUR_LEFT_AD_SLOT_ID"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                -->
+            </div>
+        </aside>
+
+        <!-- CENTER: Main App -->
+        <div class="ad-layout-center">
+            <div class="app">
+                <!-- Header -->
+                <header class="header">
+                    <div class="logo">
+                        <span class="logo-icon">🍅</span>
+                        <span class="logo-text">Focus Flow</span>
+                    </div>
+                    <div class="header-actions">
+                        <button class="icon-btn" id="routinesBtn" title="My Routines" aria-label="Open Routines">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <line x1="8" y1="6" x2="21" y2="6" />
+                                <line x1="8" y1="12" x2="21" y2="12" />
+                                <line x1="8" y1="18" x2="21" y2="18" />
+                                <circle cx="3" cy="6" r="1" fill="currentColor" />
+                                <circle cx="3" cy="12" r="1" fill="currentColor" />
+                                <circle cx="3" cy="18" r="1" fill="currentColor" />
+                            </svg>
+                        </button>
+                        <button class="icon-btn" id="themesBtn" title="Themes" aria-label="Open Themes">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="8" r="2" fill="#ff6b6b" stroke="none" />
+                                <circle cx="8" cy="13" r="2" fill="#43e97b" stroke="none" />
+                                <circle cx="16" cy="13" r="2" fill="#667eea" stroke="none" />
+                            </svg>
+                        </button>
+                        <button class="icon-btn" id="settingsBtn" title="Settings" aria-label="Open Settings">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06-.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                            </svg>
+                        </button>
+                        <button class="icon-btn guide-btn" id="guideBtn" title="App Guide" aria-label="Open Guide">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"
+                                viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                <circle cx="12" cy="17" r="0.5" fill="currentColor" />
+                            </svg>
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Routine running banner -->
+                <div class="routine-banner hidden" id="routineBanner">
+                    <span id="routineBannerText">📋 Running Routine</span>
+                    <button id="stopRoutineBtn">Stop</button>
+                </div>
+
+                <!-- Mode Tabs -->
+                <div class="mode-tabs" id="modeTabs">
+                    <button class="tab active" id="tabPomodoro" data-mode="pomodoro">Pomodoro</button>
+                    <button class="tab" id="tabShortBreak" data-mode="shortBreak">Short Break</button>
+                    <button class="tab" id="tabLongBreak" data-mode="longBreak">Long Break</button>
+                </div>
+
+                <!-- Timer Card -->
+                <div class="timer-card">
+                    <div class="progress-ring-wrap">
+                        <svg class="progress-ring" viewBox="0 0 240 240">
+                            <defs>
+                                <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="var(--accent-start)" />
+                                    <stop offset="100%" stop-color="var(--accent-end)" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="ring-bg" cx="120" cy="120" r="108" />
+                            <circle class="ring-progress" id="ringProgress" cx="120" cy="120" r="108"
+                                stroke="url(#ringGradient)" stroke-dasharray="678.58" stroke-dashoffset="0" />
+                        </svg>
+                        <div class="timer-display">
+                            <div class="time" id="timeDisplay">25:00</div>
+                            <div class="mode-label" id="modeLabel">Focus Time</div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button class="ctrl-btn secondary" id="resetBtn" aria-label="Reset Timer">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"
+                                viewBox="0 0 24 24">
+                                <polyline points="1 4 1 10 7 10" />
+                                <path d="M3.51 15a9 9 0 1 0 .49-5" />
+                            </svg>
+                        </button>
+                        <button class="ctrl-btn primary" id="startBtn" aria-label="Start Timer">
+                            <svg class="icon-play" width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21" />
+                            </svg>
+                            <svg class="icon-pause hidden" width="26" height="26" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <rect x="6" y="4" width="4" height="16" rx="1" />
+                                <rect x="14" y="4" width="4" height="16" rx="1" />
+                            </svg>
+                        </button>
+                        <button class="ctrl-btn secondary" id="skipBtn" aria-label="Skip Session">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"
+                                viewBox="0 0 24 24">
+                                <polygon points="5,4 15,12 5,20" />
+                                <line x1="19" y1="4" x2="19" y2="20" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="stats-row">
+                    <div class="stat-chip"><span class="stat-icon">🔥</span>
+                        <div>
+                            <div class="stat-value" id="sessionCount">0</div>
+                            <div class="stat-label">Sessions</div>
+                        </div>
+                    </div>
+                    <div class="stat-chip"><span class="stat-icon">⏱️</span>
+                        <div>
+                            <div class="stat-value" id="totalMinutes">0</div>
+                            <div class="stat-label">Minutes</div>
+                        </div>
+                    </div>
+                    <div class="stat-chip"><span class="stat-icon">🎯</span>
+                        <div>
+                            <div class="stat-value" id="streakCount">0</div>
+                            <div class="stat-label">Streak</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Input -->
+                <div class="task-section">
+                    <div class="task-header">
+                        <span>📝 Current Task</span>
+                        <button class="add-task-btn" id="addTaskBtn">+ Add Task</button>
+                    </div>
+                    <div class="task-input-wrap hidden" id="taskInputWrap">
+                        <input type="text" class="task-input" id="taskInput" placeholder="What are you working on?"
+                            maxlength="60" />
+                        <button class="task-save-btn" id="taskSaveBtn">Save</button>
+                    </div>
+                    <div class="current-task" id="currentTask">No task set — stay focused!</div>
+                </div>
+            </div><!-- /.app -->
+        </div><!-- /.ad-layout-center -->
+
+        <!-- RIGHT AD BANNER -->
+        <aside class="ad-sidebar ad-sidebar--right" id="adSidebarRight">
+            <div class="ad-slot" id="adSlotRight">
+                <div class="ad-placeholder">
+                    <div class="ad-placeholder-icon">📢</div>
+                    <div class="ad-placeholder-label">Ad Space</div>
+                    <div class="ad-placeholder-size">160×600</div>
+                </div>
+                <!-- Real AdSense code (uncomment after approval):
+                <ins class="adsbygoogle"
+                    style="display:inline-block;width:160px;height:600px"
+                    data-ad-client="ca-pub-YOUR_ADSENSE_CLIENT_ID"
+                    data-ad-slot="YOUR_RIGHT_AD_SLOT_ID"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                -->
+            </div>
+        </aside>
+
+    </div><!-- /.ad-layout-wrapper -->
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay hidden" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group"><label>Pomodoro (min)</label><input type="number" id="setPomo" min="1"
+                        max="60" value="25" class="setting-input" /></div>
+                <div class="setting-group"><label>Short Break (min)</label><input type="number" id="setShort" min="1"
+                        max="30" value="5" class="setting-input" /></div>
+                <div class="setting-group"><label>Long Break (min)</label><input type="number" id="setLong" min="1"
+                        max="60" value="15" class="setting-input" /></div>
+                <div class="setting-group"><label>Long Break Every</label><input type="number" id="setInterval" min="2"
+                        max="10" value="4" class="setting-input" /><span class="setting-hint">sessions</span></div>
+                <div class="setting-group toggle-group"><label>Sound Alerts</label><label class="toggle"><input
+                            type="checkbox" id="setSounds" checked /><span class="toggle-slider"></span></label></div>
+                <div class="setting-group toggle-group"><label>Browser Notifications</label><label class="toggle"><input
+                            type="checkbox" id="setNotify" checked /><span class="toggle-slider"></span></label></div>
+            </div>
+            <div class="modal-footer"><button class="btn-save-settings" id="saveSettings">Apply Settings</button></div>
+        </div>
+    </div>
+
+    <!-- ── ROUTINES PANEL ── -->
+    <div class="slide-panel" id="routinesPanel">
+        <div class="panel-header">
+            <button class="panel-back" id="routinesPanelBack">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                </svg>
+            </button>
+            <h2 class="panel-title">My Routines</h2>
+            <button class="panel-action-btn" id="newRoutineBtn">+ New</button>
+        </div>
+        <div class="panel-body" id="routinesList"></div>
+    </div>
+
+    <!-- ── BUILDER PANEL ── -->
+    <div class="slide-panel" id="builderPanel">
+        <div class="panel-header">
+            <button class="panel-back" id="builderBack">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                </svg>
+            </button>
+            <h2 class="panel-title" id="builderTitle">New Routine</h2>
+            <button class="panel-action-btn" id="saveRoutineBtn">Save</button>
+        </div>
+        <div class="panel-body">
+            <div class="routine-name-row">
+                <input type="text" id="routineNameInput" class="routine-name-input" placeholder="Routine name…"
+                    maxlength="30" />
+            </div>
+            <div id="segmentsList"></div>
+            <button class="add-segment-btn" id="addSegmentBtn">+ Add Segment</button>
+        </div>
+    </div>
+
+    <!-- ── THEMES PANEL ── -->
+    <div class="slide-panel" id="themesPanel">
+        <div class="panel-header">
+            <button class="panel-back" id="themesPanelBack">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6" />
+                </svg>
+            </button>
+            <h2 class="panel-title">Themes</h2>
+            <div style="width:38px"></div>
+        </div>
+        <div class="panel-body">
+            <div class="theme-section-label">Presets</div>
+            <div class="theme-grid" id="themeGrid"></div>
+
+            <div class="theme-section-label" style="margin-top:28px">Custom Colors</div>
+            <div class="custom-colors">
+                <div class="color-row">
+                    <label>Focus Accent</label>
+                    <div class="color-pair">
+                        <input type="color" id="customFocusStart" class="color-pick" title="Gradient start" />
+                        <input type="color" id="customFocusEnd" class="color-pick" title="Gradient end" />
+                    </div>
+                </div>
+                <div class="color-row">
+                    <label>Break Accent</label>
+                    <div class="color-pair">
+                        <input type="color" id="customBreakStart" class="color-pick" title="Gradient start" />
+                        <input type="color" id="customBreakEnd" class="color-pick" title="Gradient end" />
+                    </div>
+                </div>
+                <div class="color-row">
+                    <label>Background</label>
+                    <div class="color-pair">
+                        <input type="color" id="customBg" class="color-pick" title="Background color" />
+                    </div>
+                </div>
+            </div>
+            <button class="btn-save-settings" id="applyCustomTheme" style="margin-top:18px">Apply Custom Colors</button>
+            <button class="btn-reset-theme" id="resetThemeBtn">Reset to Default</button>
+        </div>
+    </div>
+
+    <!-- ── GUIDE OVERLAY ── -->
+    <div class="guide-overlay hidden" id="guideOverlay">
+        <div class="guide-spotlight" id="guideSpotlight"></div>
+        <div class="guide-tooltip" id="guideTooltip">
+            <div class="guide-tooltip-header">
+                <span class="guide-step-badge" id="guideStepBadge">1 / 6</span>
+                <button class="guide-close" id="guideClose">✕</button>
+            </div>
+            <div class="guide-emoji" id="guideEmoji">🍅</div>
+            <h3 class="guide-title" id="guideTitle">Welcome</h3>
+            <p class="guide-desc" id="guideDesc">Description here</p>
+            <div class="guide-nav">
+                <button class="guide-nav-btn guide-prev" id="guidePrev">← Back</button>
+                <button class="guide-nav-btn guide-next" id="guideNext">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
